@@ -1,0 +1,11 @@
+import numpy as np
+import pandas as pd
+import statsmodels.formula.api as smf
+
+dataset = pd.read_csv('housing.csv')
+dataset.head(10)
+
+model = smf.ols(formula='MEDV ~ CRIM + ZN + INDUS + RIVER + NOX + RM + AGE + DIS + RAD + TAX + PRATIO + LSTAT', data=dataset)
+result = model.fit()
+
+print(result.summary())
